@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>WEBChat</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+     <link href="/img/favicon.png" rel="icon">
+<!--===============================================================================================-->
+    <!-- <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css"> -->
+    <!-- Bootstrap CSS File -->
+  <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+    <link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+    <link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body style="background-color: #f8f9fa;">
+              
+                <form class="register100-form" onsubmit="return false">
+                    <img src="/img/logo.png" style="display:block; margin-left: auto; margin-right: auto" />
+                        <span class="register100-form-title p-b-43">
+                            Please register to create an account!
+                        </span>
+                     
+                    <div id="ajax_alert" style="display: none">
+                        <strong id="alert_text" style="display: none"></strong>
+                    </div>
+
+                    <div class="wrap-register-input100">
+                        <input id="email" class="input100" type="email" name="email" required>
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Email</span>
+                    </div>
+                                                                                       
+                    <div class="wrap-register-input100">
+                        <input id="name" class="input100" type="text" name="name" required>
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Username</span>
+                    </div>
+
+                    <div class="wrap-register-input100">
+                        <input id="password" class="input100" type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Password</span>
+                    </div>
+
+                    <div class="wrap-register-input100">
+                        <input id="confirm_password" class="input100" type="password" name="confirm_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                        <span class="focus-input100"></span>
+                        <span id="message" class="label-input100">Confirm Password</span>
+                    </div>
+
+                    <div class="gender">						
+                        <select  id="gender" name="Gender" class="form-control form-control-lg">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="N/A">Prefer not to disclose</option>
+                        </select>
+                    </div>
+                                       
+                    <div class="container-login100-form-btn">
+                        <button class="register100-form-btn">
+                            REGISTER
+                        </button>
+                    </div>
+
+                    <div class="redirect-register-login">
+                        <a href="/users/login" class="txt4">
+                            Already have an account?
+                        </a>
+                    </div>
+                    
+                </form>
+            
+<!--===============================================================================================-->
+    <script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+    <script src="/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+    <script src="/vendor/bootstrap/js/popper.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+    <script src="/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+    <script src="/vendor/daterangepicker/moment.min.js"></script>
+    <script src="/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+    <script src="/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+    <script src="/js/main_login.js"></script>
+
+</body>
+</html>
