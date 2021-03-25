@@ -29,7 +29,6 @@ socket.on('message', message => {
     chatMessage.scrollTop = chatMessage.scrollHeight;
 });
 
-
 chatForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -54,6 +53,8 @@ function outputMessage(message) {
         <div class="message-text"><p class="meta">${message.username} <span style="float: right;">${message.time}</span></p> ${message.text}</div>
         </div>
         </div>` + chatMessage.innerHTML;
+        document.getElementById(message.username).innerText = message.text;
+        document.getElementById('created-date-'+message.username).innerText = message.time;
     }
 
     else if(message.username === "WEBChat Admin") {
@@ -74,6 +75,8 @@ function outputMessage(message) {
             <div class="message-text"><p class="meta">${message.username}<span style="float: right;">${message.time}</span></p> ${message.text}</div>
             </div>
             </div>` + chatMessage.innerHTML;
+            document.getElementById(message.username).innerText = message.text;
+            document.getElementById('created-date-'+message.username).innerText = message.time;
         }
         else if(message.gender === "Female") {
             chatMessage.innerHTML = `<div class="message-row others-message">
@@ -83,6 +86,8 @@ function outputMessage(message) {
             <div class="message-text"><p class="meta">${message.username}<span style="float: right;">${message.time}</span></p> ${message.text}</div>
             </div>
             </div>` + chatMessage.innerHTML;
+            document.getElementById(message.username).innerText = message.text;
+            document.getElementById('created-date-'+message.username).innerText = message.time;
         }
         else {
             chatMessage.innerHTML = `<div class="message-row others-message">
@@ -92,6 +97,8 @@ function outputMessage(message) {
             <div class="message-text"><p class="meta">${message.username}<span style="float: right;">${message.time}</span></p> ${message.text}</div>
             </div>
             </div>` + chatMessage.innerHTML;
+            document.getElementById(message.username).innerText = message.text;
+            document.getElementById('created-date-'+message.username).innerText = message.time;
         }
         
     }
@@ -126,52 +133,103 @@ function outputUsers(users) {
           
         userList.innerHTML = users.map(user => {
             if(user.gender === "Male") {
-                return `<div class="conversation">
-                <img src="/img/man.png" style="width: 45px; height: 45px;" class="rounded-circle z-depth-0"
-                alt="avatar image">
-                <div id="user-name">
-                    ${user.username}
-                </div>
-                <div id="created-date">
-                    ${user.time}
-                </div>
-                <div class="chat-message">
-                    Hey there I am using web chat!! nksnnannanln lnlanlanlsan
-                </div>
-                </div>`
+                if(document.getElementById(user.username) && typeof document.getElementById(user.username).value !== 'undefined' && document.getElementById(user.username).value !== null && document.getElementById('created-date-'+user.username) && typeof document.getElementById('created-date-'+user.username).value !== 'undefined' && document.getElementById('created-date-'+user.username).value !== null) {
+                    return `<div class="conversation">
+                    <img src="/img/man.png" style="width: 45px; height: 45px;" class="rounded-circle z-depth-0"
+                    alt="avatar image">
+                    <div id="user-name">
+                        ${user.username}
+                    </div>
+                    <div class="chat-time" id="created-date-${user.username}">
+                        ${document.getElementById('created-date-'+user.username).value}
+                    </div>
+                    <div class="chat-message" id="${user.username}">
+                        ${document.getElementById(user.username).value}
+                    </div>
+                    </div>`
+                }
+                else {
+                    return `<div class="conversation">
+                    <img src="/img/man.png" style="width: 45px; height: 45px;" class="rounded-circle z-depth-0"
+                    alt="avatar image">
+                    <div id="user-name">
+                        ${user.username}
+                    </div>
+                    <div class="chat-time" id="created-date-${user.username}">
+                    </div>
+                    <div class="chat-message" id="${user.username}">
+                    </div>
+                    </div>`
+                }
             }
             else if(user.gender === "Female") {
-                return `<div class="conversation">
-                <img src="/img/woman.png" style="width: 40px; height: 40px;" class="rounded-circle z-depth-0"
-                alt="avatar image">
-                <div id="user-name">
-                    ${user.username}
-                </div>
-                <div id="created-date">
-                    ${user.time}
-                </div>
-                <div class="chat-message">
-                    Hey there I am using web chat!! nksnnannanln lnlanlanlsan
-                </div>
-                </div>`
+                if(document.getElementById(user.username) && typeof document.getElementById(user.username).value !== 'undefined' && document.getElementById(user.username).value !== null && document.getElementById('created-date-'+user.username) && typeof document.getElementById('created-date-'+user.username).value !== 'undefined' && document.getElementById('created-date-'+user.username).value !== null) {
+                    return `<div class="conversation">
+                    <img src="/img/woman.png" style="width: 40px; height: 40px;" class="rounded-circle z-depth-0"
+                    alt="avatar image">
+                    <div id="user-name">
+                        ${user.username}
+                    </div>
+                    <div class="chat-time" id="created-date-${user.username}">
+                        ${document.getElementById('created-date-'+user.username).value}
+                    </div>
+                    <div class="chat-message" id="${user.username}">
+                        ${document.getElementById(user.username).value}
+                    </div>
+                    </div>`
+                }
+                else {
+                    return `<div class="conversation">
+                    <img src="/img/woman.png" style="width: 40px; height: 40px;" class="rounded-circle z-depth-0"
+                    alt="avatar image">
+                    <div id="user-name">
+                        ${user.username}
+                    </div>
+                    <div class="chat-time" id="created-date-${user.username}">
+                    </div>
+                    <div class="chat-message" id="${user.username}">
+                    </div>
+                    </div>`
+                }
             }
             else {
-                return `<div class="conversation">
-                <img src="/img/user.png" style="width: 40px; height: 40px;" class="rounded-circle z-depth-0"
-                alt="avatar image">
-                <div id="user-name">
-                    ${user.username}
-                </div>
-                <div id="created-date">
-                    ${user.time}
-                </div>
-                <div class="chat-message">
-                    Hey there I am using web chat!! nksnnannanln lnlanlanlsan
-                </div>
-                </div>`
+                if(document.getElementById(user.username) && typeof document.getElementById(user.username).value !== 'undefined' && document.getElementById(user.username).value !== null && document.getElementById('created-date-'+user.username) && typeof document.getElementById('created-date-'+user.username).value !== 'undefined' && document.getElementById('created-date-'+user.username).value !== null) {
+                    return `<div class="conversation">
+                    <img src="/img/user.png" style="width: 40px; height: 40px;" class="rounded-circle z-depth-0"
+                    alt="avatar image">
+                    <div id="user-name">
+                        ${user.username}
+                    </div>
+                    <div class="chat-time" id="created-date-${user.username}">
+                        ${document.getElementById('created-date-'+user.username).value}
+                    </div>
+                    <div class="chat-message" id="${user.username}">
+                        ${document.getElementById(user.username).value}
+                    </div>
+                    </div>`
+                }
+                else {
+                    return `<div class="conversation">
+                    <img src="/img/woman.png" style="width: 40px; height: 40px;" class="rounded-circle z-depth-0"
+                    alt="avatar image">
+                    <div id="user-name">
+                        ${user.username}
+                    </div>
+                    <div class="chat-time" id="created-date-${user.username}">
+                    </div>
+                    <div class="chat-message" id="${user.username}">
+                    </div>
+                    </div>`
+                }
             }
         }
                
         ).join('')
            
 }
+
+window.onbeforeunload = function (e) {
+    var message = "Are you sure ?";
+    return message;
+};
+

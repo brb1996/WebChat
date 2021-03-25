@@ -240,7 +240,7 @@ html, body {
     font-weight: lighter;
 }
 
-#created-date {
+.chat-time {
     color: #ddd;
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
